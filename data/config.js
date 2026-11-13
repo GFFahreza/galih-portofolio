@@ -26,8 +26,8 @@
     captions: optional .vtt subtitle path (provider "file" only)
 */
 window.CONFIG = {
-  github: "",
-  linkedin: "",
+  github: "https://github.com/GFFahreza",
+  linkedin: "https://www.linkedin.com/in/galih-fajar-fahreza-6b907a310/",
   portfolio: "",
   email: "",
 
