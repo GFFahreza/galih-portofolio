@@ -113,7 +113,7 @@ window.CV = {
     },
     assistant: {
       title: "Practicum Assistant, Informatics Study Program",
-      period: "Odd semester 2026/2027", // DUMMY period: replace with the real one
+      period: "September 2026 to present", // DUMMY period: replace with the real one
       org: "Universitas Ahmad Dahlan, Yogyakarta",
       bullets: [
         "Teach practicum classes for fifth-semester Informatics students.",
