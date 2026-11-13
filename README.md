@@ -6,6 +6,16 @@ Panduan ini ditulis berurutan. Ikuti dari langkah 1 sampai 8.
 
 ---
 
+## UTS Bahasa Inggris Profesional (lamaran TechNova)
+
+Situs ini sekarang juga portofolio untuk lowongan fiktif **Full-Stack Web Developer di TechNova Digital Solutions**.
+
+- **Isi yang masih harus kamu lengkapi** (ditandai kotak kuning bergaris di halaman): nama instansi KP, periode KP, dan satu hasil spesifik KP. Cari teks `[ISI:` di `index.html` (ada di bagian Internship dan di surat lamaran), ganti dengan data asli, lalu hapus tag `<mark class="isi">` di sekitarnya.
+- **URL video:** buka `data/config.js`, isi `video.url` dengan link YouTube (Unlisted) atau Google Drive. Untuk Google Drive, atur berbagi ke "Siapa saja yang memiliki link". Tidak perlu mengisi `id`.
+- **Surat lamaran:** jumlah kata badan surat muncul otomatis di atas surat. Tombol "Download as PDF" membuka dialog cetak; pilih "Save as PDF".
+- **Naskah video:** `docs/video-script.md`. Folder `docs/` di-ignore oleh git, jadi naskah tidak ikut terpublikasi.
+- **Konsistensi:** kalau mengubah skill atau pengalaman, ubah juga di surat, bagian Skills/Internship/Projects, dan naskah video.
+
 ## 1. Menjalankan di komputer sendiri (Live Server)
 
 1. Buka folder proyek ini di VS Code (**File > Open Folder...**).
@@ -30,7 +40,7 @@ Cara lain kalau tidak memakai VS Code:
 
 | File / folder | Isinya |
 | --- | --- |
-| `index.html` | Kerangka halaman dan teks tetap: hero (nama sebagai entri kamus), Self-introduction video (bingkai video saja), kerangka bagian CV, esai e-commerce (introduction, advantages, disadvantages, conclusion), judul bagian, dan footer. Urutan halaman: Home, Intro video, CV, E-commerce, Journals. |
+| `index.html` | Kerangka halaman dan teks tetap: hero (nama sebagai entri kamus), Self-introduction video (bingkai video saja), kerangka bagian CV, esai e-commerce (introduction, advantages, disadvantages, conclusion), judul bagian, dan footer. Urutan halaman: Home, About, Skills, Internship, Projects, Application letter, Video, CV, E-commerce, Journals, Contact. |
 | `css/style.css` | Semua tampilan: warna (token di bagian `:root`), font, tata letak, dan efek hover/pressed. Aturan di bawah `.js-motion` hanya aktif kalau animasi berjalan. |
 | `js/main.js` | Isi dan perilaku: video perkenalan (klik untuk memuat), garis bawah menu sesuai bagian yang sedang dibaca, foto di hero, poin e-commerce dan timbangan, filter jurnal, proyek, dan link kontak. Semuanya tetap jalan tanpa animasi. |
 | `js/cv.js` | Bagian CV: 13 langkah panduan, tab peran, planner, checklist, dan CV contoh beserta tombol versinya. Semua teksnya diambil dari `data/cv-guide.js` dan `data/cv.js`. |
@@ -110,9 +120,9 @@ Player YouTube baru dimuat setelah pengunjung menekan tombol play (lewat `youtub
 
 Dengan file mp4, titik merah REC, penghitung waktu, dan equalizer di bingkai bergerak hanya saat video benar-benar diputar.
 
-**Naskah video:** tidak ditampilkan di halaman. Simpan naskahmu sendiri (draf ada di `_inbox/CONTENT_CV_Video.md`, bagian E).
+**Naskah video:** tidak ditampilkan di halaman. Naskah UTS ada di `docs/video-script.md` (tidak ikut di-commit).
 
-**Selama video belum diisi**, bingkai di bagian "Self-introduction video" hanya menampilkan placeholder "Introduction video coming soon" dengan tombol play yang nonaktif. Untuk menampilkan video, isi `id` (YouTube) atau `src` (file mp4) di bagian `video` pada `data/config.js`, seperti langkah di atas. Tidak ada catatan lain yang muncul di halaman.
+**Selama video belum diisi**, bingkai di bagian Video hanya menampilkan placeholder "Introduction video coming soon" dengan tombol play yang nonaktif. Untuk menampilkan video, isi `url` (link YouTube atau Google Drive), `id` (YouTube), atau `src` (file mp4) di bagian `video` pada `data/config.js`, seperti langkah di atas. Tidak ada catatan lain yang muncul di halaman.
 
 ### 4b. Mengedit CV
 
@@ -121,7 +131,7 @@ Semua isi CV ada di `data/cv.js` (sumbernya `_inbox/CONTENT_CV_Informatics_v2.md
 - Entri pengalaman ditulis sekali di `experience`. Setiap versi memilih dan mengurutkan entri lewat id, misalnya `["muara", "edm", "vcode"]`. Variasi kalimat untuk versi tertentu ditulis di `variants` (contoh `smartcomp:short`).
 - `profile`, `skills`, dan `portfolio` ditulis per versi.
 - Foto di CV memakai slot dari `data/photos.js` (lihat langkah 4e), misalnya logo V-Code dan sertifikat.
-- Desa Cisempur dan link GitHub sengaja belum dimasukkan. Tambahkan kalau sudah kamu putuskan.
+- Desa Cisempur sudah dimasukkan. Link GitHub sengaja belum dimasukkan.
 - Jangan pernah menulis nomor HP atau email.
 
 Foto untuk CV dan bagian lain diatur di langkah 4e.

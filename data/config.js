@@ -14,8 +14,10 @@
              The "Download CV (PDF)" button appears as soon as this is set.
              Remove your phone number and email from the PDF before you add it.
 
-  video:     the "Meet me" introduction video. While both id and src are "",
+  video:     the video presentation. While url, id, and src are all "",
              the frame shows its "Introduction video coming soon" state.
+    url:      the easiest option: paste a YouTube (Unlisted) or Google Drive share link.
+              Google Drive: set sharing to "Anyone with the link". The url wins over id and src.
     provider: "youtube" (use an Unlisted video) or "file" (an mp4 in assets/video/)
     id:       the YouTube video ID, the 11 characters after "watch?v=" in the link
     src:      path to the mp4 when provider is "file", e.g. "assets/video/intro.mp4"
@@ -35,11 +37,12 @@ window.CONFIG = {
   cvPdf: "",
 
   video: {
+    url: "", // [ISI: URL video] paste the YouTube or Google Drive link here
     provider: "youtube",
     id: "",
     src: "",
     poster: "",
-    title: "Self-introduction by Galih Fajar Fahreza",
+    title: "What I Built and Learned During My Internship, by Galih Fajar Fahreza",
     captions: ""
   }
 };

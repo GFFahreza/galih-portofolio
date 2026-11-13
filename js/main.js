@@ -271,6 +271,17 @@
 
   /* Self-introduction video. Nothing loads until the visitor presses
      play (a click-to-load facade), and nothing ever autoplays on its own. */
+  /* Reads a pasted YouTube or Google Drive link and returns its video ID. */
+  function parseVideoUrl(url) {
+    var out = { youtube: "", drive: "" };
+    if (!url || typeof url !== "string" || /\[ISI/i.test(url)) return out;
+    var m = url.match(/(?:youtube(?:-nocookie)?\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+    if (m) { out.youtube = m[1]; return out; }
+    m = url.match(/drive\.google\.com\/(?:file\/d\/|open\?(?:.*&)?id=|uc\?(?:.*&)?id=)([A-Za-z0-9_-]{20,})/);
+    if (m) out.drive = m[1];
+    return out;
+  }
+
   function setupVideo() {
     var v = CONFIG.video || {};
     var stage = document.getElementById("vstage");
@@ -295,10 +306,12 @@
     }
 
     var title = v.title || "Self-introduction by Galih Fajar Fahreza";
-    var ytId = v.provider === "youtube" && /^[A-Za-z0-9_-]{11}$/.test(v.id || "") ? v.id : "";
-    var fileSrc = v.provider === "file" && v.src ? v.src : "";
+    var fromUrl = parseVideoUrl(v.url);
+    var ytId = fromUrl.youtube || (v.provider === "youtube" && /^[A-Za-z0-9_-]{11}$/.test(v.id || "") ? v.id : "");
+    var driveId = fromUrl.drive || "";
+    var fileSrc = !ytId && !driveId && v.provider === "file" && v.src ? v.src : "";
 
-    if (!ytId && !fileSrc) {
+    if (!ytId && !driveId && !fileSrc) {
       // Empty state: only the designed placeholder inside the frame.
       frame.dataset.state = "empty";
       return;
@@ -332,6 +345,18 @@
       iframe.referrerPolicy = "strict-origin-when-cross-origin";
       showPlayer(iframe);
       if (recLabel) recLabel.textContent = "YouTube";
+      iframe.focus();
+    }
+
+    function loadDrive() {
+      var iframe = document.createElement("iframe");
+      iframe.src = "https://drive.google.com/file/d/" + driveId + "/preview";
+      iframe.title = title;
+      iframe.allow = "autoplay; encrypted-media; fullscreen";
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      showPlayer(iframe);
+      if (recLabel) recLabel.textContent = "Google Drive";
       iframe.focus();
     }
 
@@ -384,6 +409,7 @@
 
     play.addEventListener("click", function () {
       if (ytId) loadYouTube();
+      else if (driveId) loadDrive();
       else loadFile();
     });
   }
@@ -413,6 +439,41 @@
     });
 
     list.hidden = entries.length === 0;
+
+    // Contact section: the email appears only when the owner sets it in config.
+    var cell = document.getElementById("contact-email");
+    var row = document.getElementById("contact-email-row");
+    if (cell && row && CONFIG.email) {
+      row.querySelector("dt").textContent = "Email";
+      cell.textContent = "";
+      var mail = el("a", null, CONFIG.email);
+      mail.href = "mailto:" + CONFIG.email;
+      cell.appendChild(mail);
+    }
+  }
+
+  /* Application letter: the print layout shows only the letter, so "Save as PDF" gives a clean page. */
+  function setupLetterPrint() {
+    var count = document.getElementById("letter-count");
+    var body = document.querySelectorAll("#letter .letter > p:not([class])");
+    if (count && body.length) {
+      var words = 0;
+      body.forEach(function (p) {
+        // A placeholder such as [ISI: ...] counts as one word until it is filled.
+        var text = p.textContent.replace(/\[ISI:[^\]]*\]/g, "X").trim();
+        if (text) words += text.split(/\s+/).length;
+      });
+      count.textContent = "Letter body: " + words + " words";
+    }
+    var btn = document.getElementById("letter-print");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      document.documentElement.classList.add("print-letter");
+      window.print();
+    });
+    window.addEventListener("afterprint", function () {
+      document.documentElement.classList.remove("print-letter");
+    });
   }
 
   setupNavActive();
@@ -421,4 +482,5 @@
   setupDebate();
   setupFilters(renderJournals());
   renderContacts();
+  setupLetterPrint();
 })();

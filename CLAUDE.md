@@ -14,23 +14,22 @@ An English course assignment: the personal site of Galih Fajar Fahreza, built as
 
 ## Page order
 
-Single page with a sticky nav: Intro video, CV, E-commerce, Journals. There is no separate Experience section: every experience entry lives in the CV. The link for the section in view gets `aria-current="location"` and a tomato underline. main.js does this with an IntersectionObserver line, never with scroll handlers that read layout.
+**UTS context (Bahasa Inggris Profesional, due 13 November 2026):** the site doubles as a portfolio for a fictional vacancy, Full-Stack Web Developer at TechNova Digital Solutions. The lecturer checks that the application letter, the portfolio, and the video agree, so any change to skills or experience must be made in all three (the letter in index.html, the Skills, Internship, and Projects sections, and the private script in `docs/video-script.md`, which is git-ignored and never published).
 
-1. **Home / hero** (`#top`, `100svh` minus the header, with a `100vh` fallback):
-   - the left 8 columns hold "Galih" (wdth 150%), "Fajar" (139%, blue), and "Fahreza" (90%), with a row of three stickers underneath;
-   - the right 4 columns hold the dictionary entry: syllables, "proper noun", three numbered senses, the lead, two buttons, and the optional photo;
-   - a visible 12-column grid, a lemon starburst, and the marquee along the bottom edge.
-2. **Self-introduction video** (`#intro-video`, p. 2, tag "noun phrase", nav label "Intro video"): only the video stage, centered (`.intro-stage`, max 1040px). There is no About text, no glossary, no script panel, no side column, and no on-page setup note; the setup instructions live in README.md.
-3. **CV** (`#cv`, p. 3, "How to write a CV as an Informatics undergraduate", tag "wh-infinitive clause"):
-   - the intro;
-   - the guide: a sticky thumb index plus 13 `<details>` steps;
-   - "Galih's CV, annotated", with a version switch (Master, Full-stack developer, Cybersecurity), the optional PDF button, and a CV sheet with numbered margin marks;
-   - the final recommendation.
-4. **E-commerce** (`#ecommerce`, p. 4): the Introduction, the ink debate floor with the balance scale, and the Conclusion.
-5. **Journal reading list** (`#journals`, p. 5).
-6. **Footer** (ink): the name, "Informatics, Universitas Ahmad Dahlan", NIM 2300018254, and only the contact links set in config.
+Single page with a sticky nav: About, Skills, Internship, Projects, Application letter, Video, Contact. Below 1100px the nav row scrolls sideways inside itself. The CV, essay, and journals stay on the page without nav links. The link for the section in view gets `aria-current="location"` through `watchLine`.
 
-Color wipes (`.wipe`) separate the sections in this order: tomato, blue, lemon, tomato, blue, then lemon before the footer.
+1. **Hero** (`#top`): buttons "Read my application letter" (`#letter`) and "Watch the video" (`#video`).
+2. **About** (`#about`, p. 2, "About me", prepositional phrase).
+3. **Skills** (`#skills`, p. 3, plural noun): a `dl` of chip groups. Keep it in step with the letter.
+4. **Internship experience** (`#internship`, p. 4, noun phrase): the KP card (place, period, result are `[ISI]` placeholders shown as `mark.isi`), plus related cybersecurity experience. Never publish system names or vulnerability details.
+5. **Projects** (`#projects`, p. 5, plural noun): Desa Cisempur, Muara Sikabaluan, V-Code, thesis.
+6. **Application letter** (`#letter`, p. 6, noun phrase): formal letter, 200 to 300 words in the body (main.js counts the body paragraphs, `.letter > p:not([class])`, and shows the count). "Download as PDF" adds `.print-letter` to `<html>` and calls `window.print()`; print CSS then shows only the letter on A4.
+7. **Video** (`#video`, p. 7, "What I Built and Learned During My Internship", noun clause): the video stage plus a list of the skills it covers. `CONFIG.video.url` takes a YouTube or Google Drive link (`parseVideoUrl` in main.js; Drive embeds `/file/d/ID/preview`).
+8. **CV** (`#cv`, p. 8), 9. **E-commerce** (`#ecommerce`, p. 9), 10. **Journals** (`#journals`, p. 10).
+11. **Contact** (`#contact`, p. 11): location, LinkedIn, portfolio URL; email only if `CONFIG.email` is set.
+12. **Footer** (ink).
+
+Wipes: tomato, blue, lemon, tomato, blue, tomato, blue, lemon, blue, tomato, then lemon before the footer.
 
 ## File map
 
@@ -166,7 +165,8 @@ Source: `_inbox/CONTENT_CV_Informatics_v2.md` (replaces sections A to D of `CONT
   - the four academic projects (the Cyberpunk post-mortem is removed);
   - "Computer Technician (PKL work placement)" for Smart Comp.
 - **Still withheld (also):** the thesis dataset detail (URL-Phish v2, 116,600 URLs), the Smart Comp year, MikroTik as a skill, and the representative roles listed under certifications.
-- **Still withheld, ask before adding:** the Desa Cisempur village website ("later"), and the GitHub link. Three profiles (Full-stack, Cybersecurity, QA) had their Cisempur clauses removed. VPS deployment is left out for the same reason.
+- **Approved for the UTS (13 November 2026):** the Desa Cisempur entry (React, Laravel, QA testing, VPS deployment).
+- **Still withheld, ask before adding:** the GitHub link. Three profiles (Full-stack, Cybersecurity, QA) had their Cisempur clauses removed. VPS deployment is left out for the same reason.
 - **Bug hunter (CV only):** `experience.bounty` holds **DUMMY** text supplied by Galih: a summary, scope, three bullets, a story, and chips. It is flagged `placeholder: true` with a `// DUMMY` comment per item, and the variant `bounty:short` (summary and chips) is used on the Cybersecurity and QA tabs. js/cv.js logs every placeholder item through `console.info`. Never show a "dummy" label on the page, and never expand the dummy text with numbers, platform or program names, rewards, rankings, or targets. Replace it only with facts from `_inbox/bug-bounty.md` (template: `BUG_BOUNTY_TEMPLATE.md`).
 
 ## Photo slots

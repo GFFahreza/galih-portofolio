@@ -8,7 +8,7 @@
   Rules
   - Never put the phone number or email here ("Available on request").
   - Leave [CONFIRM] items out until Galih approves them.
-    Still waiting: the Desa Cisempur village website, the GitHub link, the thesis
+    Still waiting: the GitHub link, the thesis
     dataset detail, the Smart Comp year, MikroTik as a skill, and the two
     school-representative roles as certifications.
   - Experience entries are listed once in `experience`; each version picks
@@ -96,6 +96,14 @@ window.CV = {
       ],
       gallery: "edm"
     },
+    cisempur: {
+      title: "Full Stack Developer, village website project (Desa Cisempur)",
+      period: "2026",
+      bullets: [
+        "Developed the official village website with React (front end) and Laravel (back end).",
+        "Took part in QA testing and deployed the application to a production server (VPS)."
+      ]
+    },
     vcode: {
       title: "Founder, V-Code (software house)",
       org: "Entrepreneurship",
@@ -161,8 +169,8 @@ window.CV = {
     master: {
       label: "Master CV",
       profile: "Informatics undergraduate at Universitas Ahmad Dahlan with a Computer and Network Engineering background. Full-stack developer and bug hunter, writing an undergraduate thesis on real-time phishing URL detection. Builds web applications end to end, from interface and database to testing and deployment, and founded V-Code, a software house. Took part in a community service expedition in the Mentawai Islands, where he built a tourism and local-business website for Muara Sikabaluan village. Strong interest in web development and cybersecurity, and used to working in teams.",
-      experience: ["muara", "edm", "vcode", "kpu", "smartcomp", "bounty"],
-      skills: ["Web design", "Front-end coding", "Back-end coding", "JavaScript", "TypeScript", "React", "Next.js", "PHP", "Laravel", "Tailwind CSS", "C++", "Supabase and PostgreSQL", "Deployment (Vercel)", "Git and GitHub", "QA testing", "Networking basics", "Security tools: Burp Suite, nmap, bettercap, Frida"],
+      experience: ["muara", "edm", "cisempur", "vcode", "kpu", "smartcomp", "bounty"],
+      skills: ["Web design", "Front-end coding", "Back-end coding", "JavaScript", "TypeScript", "React", "Next.js", "PHP", "Laravel", "Tailwind CSS", "C++", "Supabase and PostgreSQL", "Deployment (Vercel, VPS)", "Git and GitHub", "QA testing", "Networking basics", "Security tools: Burp Suite, nmap, bettercap, Frida"],
       portfolio: [
         { label: "Live project: Muara Sikabaluan village website", href: "https://desa-muara-sikabaluan.vercel.app" },
         { label: "The journal reading list on this site", href: "#journals" }
@@ -170,9 +178,9 @@ window.CV = {
     },
     fullstack: {
       label: "Full-stack developer",
-      profile: "Informatics undergraduate who builds and ships web applications. Built a tourism and local-business website for Muara Sikabaluan village with Next.js, TypeScript, and Supabase. Founder of V-Code, a software house. Seeking a junior full-stack role.",
-      experience: ["muara", "vcode", "edm", "kpu", "smartcomp:short"],
-      skills: ["React", "Next.js", "TypeScript", "JavaScript", "PHP", "Laravel", "Tailwind CSS", "Supabase and PostgreSQL", "Vercel deployment", "Git and GitHub"],
+      profile: "Informatics undergraduate who builds and ships web applications. Built a tourism and local-business website for Muara Sikabaluan village with Next.js, TypeScript, and Supabase, and worked as a full-stack developer on a village website in React and Laravel, including QA testing and VPS deployment. Founder of V-Code, a software house. Seeking a junior full-stack role.",
+      experience: ["muara", "cisempur", "vcode", "edm", "kpu", "smartcomp:short"],
+      skills: ["React", "Next.js", "TypeScript", "JavaScript", "PHP", "Laravel", "Tailwind CSS", "Supabase and PostgreSQL", "Vercel and VPS deployment", "Git and GitHub"],
       portfolio: [
         { label: "Live project: Muara Sikabaluan village website", href: "https://desa-muara-sikabaluan.vercel.app" }
       ]
@@ -180,7 +188,7 @@ window.CV = {
     cyber: {
       label: "Cybersecurity analyst",
       profile: "Informatics undergraduate with a Computer and Network Engineering background and training in mobile penetration testing (Codelamp Indonesia mini bootcamp). Practices bug bounty and CTF, and is familiar with Burp Suite, nmap, bettercap, and Frida. Seeking an entry-level security role.",
-      experience: ["thesis", "bounty:short", "infosec", "muara", "smartcomp"],
+      experience: ["thesis", "bounty:short", "infosec", "muara", "cisempur", "smartcomp"],
       skills: ["Networking (from TKJ)", "Linux", "Web security basics", "Security tools: Burp Suite, nmap, bettercap, Frida", "PHP and JavaScript code reading", "Hardware diagnosis"],
       portfolio: [
         { label: "The journal reading list on this site (cybersecurity papers)", href: "#journals" }
@@ -189,8 +197,8 @@ window.CV = {
     },
     qa: {
       label: "Software tester (QA)",
-      profile: "Informatics undergraduate who builds web applications himself, so he reads code and understands how defects arise. Tested the Muara Sikabaluan village website before its release. Seeking a junior QA role in a team that values quality.",
-      experience: ["muara:qa", "bounty:short", "vcode", "kpu"],
+      profile: "Informatics undergraduate with hands-on QA testing experience on a village website that went from testing to production deployment. Builds web applications himself, so he reads code and understands how defects arise. Seeking a junior QA role in a team that values quality.",
+      experience: ["cisempur", "muara:qa", "bounty:short", "vcode", "kpu"],
       skills: ["QA testing", "Bug reporting", "Web technologies (React, Laravel, Next.js)", "Git and GitHub"],
       portfolio: [
         { label: "Live project: Muara Sikabaluan village website", href: "https://desa-muara-sikabaluan.vercel.app" }
@@ -199,7 +207,7 @@ window.CV = {
     support: {
       label: "IT support and network technician",
       profile: "Informatics undergraduate with a Computer and Network Engineering background: trained to design, build, and set up networks, a computer technician during a work placement at Smart Comp, and the school's representative in a district sysadmin competition and the MikroTik network olympiad. Helped set up internet equipment for teachers in the Mentawai Islands during a community service expedition. Skilled at diagnosing faults and explaining fixes to non-technical users. Seeking an entry-level support role.",
-      experience: ["smartcomp", "edm", "vcode"],
+      experience: ["smartcomp", "edm", "cisempur", "vcode"],
       skills: ["Hardware diagnosis", "Network setup (Starlink, repeater, access point)", "Operating systems", "Customer communication", "Deployment basics"],
       portfolio: [
         { label: "Live project: Muara Sikabaluan village website", href: "https://desa-muara-sikabaluan.vercel.app" }

@@ -324,21 +324,33 @@ html.lenis body { height: auto; }
   transform-origin: 0 50%;
 }
 
+/* Seven links: below 1100px the row scrolls sideways inside itself, never the page. */
+@media (max-width: 1099px) {
+  .nav-links {
+    min-width: 0;
+    gap: 16px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    padding: 4px 2px 6px;
+    margin-bottom: -6px;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a { font-size: 14px; }
+}
+
 @media (max-width: 639px) {
   .nav-brand-text { display: none; }
-  .nav-links { gap: 14px; }
-  .nav-links a { font-size: 14px; }
 }
 
 @media (max-width: 479px) {
   .nav-brand { display: none; }
-  .nav-links { margin-left: 0; width: 100%; justify-content: space-between; gap: 6px; }
+  .nav-links { margin-left: 0; width: 100%; gap: 14px; }
   .nav-links a { font-size: 13px; font-stretch: 92%; }
 }
 
 @media (max-width: 389px) {
-  .nav-links { gap: 4px; }
-  .nav-links a { font-size: 12.5px; font-stretch: 85%; }
+  .nav-links a { font-size: 12.5px; }
 }
 
 /* Hero ---------------------------------------------------------------------- */
@@ -2442,3 +2454,202 @@ html.lenis body { height: auto; }
 }
 
 .intro-stage .vstage { padding: clamp(26px, 4vw, 56px); }
+
+
+/* ==========================================================================
+   Portfolio for the application: About, Skills, Internship, Projects,
+   Application letter, Video skills, Contact
+   ========================================================================== */
+
+.about-text { font-size: clamp(19px, 1.5vw, 21px); }
+
+/* Skills: a dictionary-style definition list. */
+.skill-list,
+.contact-list { max-width: 980px; }
+
+.skill-row,
+.contact-row {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: 8px 32px;
+  padding: 18px 0;
+  border-bottom: 2px solid var(--ink);
+}
+
+.skill-row:first-child,
+.contact-row:first-child { border-top: 2px solid var(--ink); }
+
+.skill-row dt,
+.contact-row dt,
+.intern-meta dt {
+  font-family: var(--display);
+  font-weight: 800;
+  font-stretch: 100%;
+  font-size: 17px;
+}
+
+.skill-row .chips { margin-top: 0; }
+.skill-row .chip { background: var(--paper); }
+.skill-row:nth-child(odd) .chip { background: var(--lemon); }
+
+.contact-row dd { overflow-wrap: anywhere; }
+
+@media (max-width: 639px) {
+  .skill-row,
+  .contact-row { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Internship */
+.intern {
+  max-width: 860px;
+  padding: clamp(20px, 3vw, 36px);
+  background: var(--paper);
+  border: var(--line) solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.intern-title,
+.intern-related-title,
+.proj-title,
+.video-skills-title {
+  font-family: var(--display);
+  font-size: clamp(1.3rem, 1rem + 0.9vw, 1.8rem);
+  font-weight: 800;
+  font-stretch: 100%;
+  line-height: 1.1;
+}
+
+.intern-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 12px 24px;
+  margin: 18px 0 8px;
+}
+
+.intern-meta dd { margin-top: 2px; }
+
+.intern-sub {
+  margin: 22px 0 6px;
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 800;
+  font-stretch: 110%;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.intern-list,
+.intern-related,
+.proj-body > ul:not(.chips),
+.video-skills-list { padding-left: 1.2em; list-style: square; }
+
+.intern-list li::marker,
+.intern-related li::marker,
+.proj-body li::marker,
+.video-skills-list li::marker { color: var(--ink); }
+
+.intern-list li + li,
+.intern-related li + li,
+.proj-body li + li,
+.video-skills-list li + li { margin-top: 6px; }
+
+.intern-note {
+  margin-top: 14px;
+  color: var(--ink-soft);
+  font-size: 16px;
+  font-style: italic;
+}
+
+.intern-related-title { margin: clamp(36px, 5vw, 56px) 0 14px; }
+.intern-related { max-width: 52em; }
+
+/* Placeholders the owner still has to fill: impossible to miss. */
+mark.isi {
+  padding: 0 4px;
+  background: var(--lemon);
+  color: var(--ink);
+  outline: 2px dashed var(--ink);
+}
+
+/* Projects */
+.proj-list { display: grid; gap: 0; list-style: none; max-width: 1100px; }
+
+.proj {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 12px 40px;
+  padding: 28px 0;
+  border-top: 2px solid var(--ink);
+}
+
+.proj:last-child { border-bottom: 2px solid var(--ink); }
+.proj-meta { margin-top: 6px; color: var(--ink-soft); font-size: 16px; }
+.proj-body .btn { margin-top: 16px; }
+
+@media (max-width: 767px) {
+  .proj { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Application letter: a sheet of paper on the page. */
+.letter-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-bottom: 20px; }
+.letter-count { font-family: var(--display); font-size: 15px; font-weight: 800; font-stretch: 105%; }
+
+.letter {
+  max-width: 46rem;
+  padding: clamp(24px, 5vw, 64px);
+  background: var(--paper);
+  border: var(--line) solid var(--ink);
+  box-shadow: 10px 10px 0 var(--ink);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.letter p + p { margin-top: 0.9em; }
+.letter-sender p + p,
+.letter-to p + p { margin-top: 0; }
+.letter-name { font-weight: 700; }
+.letter-sender { color: var(--ink-soft); font-size: 16px; overflow-wrap: anywhere; }
+.letter-sender .letter-name { color: var(--ink); font-size: 18px; }
+.letter-date { margin-top: 1.6em !important; }
+.letter-to { margin-top: 1.2em !important; }
+.letter-subject { margin-top: 1.2em !important; }
+.letter a { overflow-wrap: anywhere; }
+.letter-close { margin-top: 1.6em !important; }
+.letter-sign { margin-top: 2.4em !important; font-weight: 700; }
+
+/* Video: the skills it covers, under the stage. */
+.video-skills {
+  max-width: 1040px;
+  margin: clamp(32px, 5vw, 56px) auto 0;
+}
+
+.video-skills-list { margin-top: 12px; columns: 2 18rem; column-gap: 40px; }
+.video-skills-list li { break-inside: avoid; }
+
+/* Print: the whole page prints plainly; the letter button prints only the letter. */
+@media print {
+  @page { size: A4; margin: 20mm; }
+  html, body { background: #fff !important; }
+  .masthead, .wipe, .marquee, .cursor, .progress, .skip-link, .vstage-stickers { display: none !important; }
+  .letter-actions { display: none !important; }
+
+  .print-letter body > *:not(main),
+  .print-letter main > *:not(#letter),
+  .print-letter #letter .wrap > *:not(.letter) { display: none !important; }
+  .print-letter #letter { padding: 0; background: #fff !important; }
+  .print-letter .letter { background: #fff !important; }
+  .print-letter #letter .wrap { max-width: none; padding: 0; }
+  .print-letter #letter,
+  .print-letter #letter * { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+  .print-letter .letter {
+    max-width: none;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+  }
+  .print-letter .letter a { color: #000; text-decoration: none; }
+  .print-letter mark.isi { outline: 0; background: none; }
+}
