@@ -16,7 +16,7 @@ An English course assignment: the personal site of Galih Fajar Fahreza, built as
 
 **UTS context (Bahasa Inggris Profesional, due 13 November 2026):** the site doubles as a portfolio for a fictional vacancy, Full-Stack Web Developer at TechNova Digital Solutions. The lecturer checks that the application letter, the portfolio, and the video agree, so any change to skills or experience must be made in all three (the letter in index.html, the Skills, Internship, and Projects sections, and the private script in `docs/video-script.md`, which is git-ignored and never published).
 
-Single page with a sticky nav: About, Skills, Internship, Projects, Application letter, Video, Contact. Below 1100px the nav row scrolls sideways inside itself. The CV, essay, and journals stay on the page without nav links. The link for the section in view gets `aria-current="location"` through `watchLine`.
+Single page with a sticky nav: About, Skills, Internship, Projects, Application letter, Video, CV, E-commerce, Journals, Contact. Below 1280px the nav row scrolls sideways inside itself. The link for the section in view gets `aria-current="location"` through `watchLine`.
 
 1. **Hero** (`#top`): buttons "Read my application letter" (`#letter`) and "Watch the video" (`#video`).
 2. **About** (`#about`, p. 2, "About me", prepositional phrase).

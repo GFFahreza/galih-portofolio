@@ -324,8 +324,8 @@ html.lenis body { height: auto; }
   transform-origin: 0 50%;
 }
 
-/* Seven links: below 1100px the row scrolls sideways inside itself, never the page. */
-@media (max-width: 1099px) {
+/* Ten links: below 1280px the row scrolls sideways inside itself, never the page. */
+@media (max-width: 1279px) {
   .nav-links {
     min-width: 0;
     gap: 16px;
