@@ -55,7 +55,7 @@ window.CV = {
       bullets: [
         "Undergraduate thesis (in progress, proposal stage): \"Design and Development of a Real-Time Phishing URL Detection System Based on Random Forest and XGBoost with SHAP Feature Selection\".",
         "Academic project: contributed a feature to a shared Laravel ERP repository for a Software Engineering course, working on a separate branch.",
-        "Academic project: carried out a security assessment of web applications during an internship (KP) and documented the findings for the supervisor.",
+        "Internship (KP) at Madrasah Muallimat Muhammadiyah, Yogyakarta: improved the school library system (SLiMS, PHP and MySQL), its database, and its website, and tested the website for security weaknesses.",
         "Academic project: reviewed five papers on web application vulnerabilities (OWASP Top 10) and adversarial attacks on intrusion detection for a group journal assignment (the reading list on this site).",
         "Academic project: completed a Deep Learning practicum covering LSTM, GRU, Transformer, DCGAN, and neural machine translation."
       ]
@@ -179,7 +179,7 @@ window.CV = {
       label: "Master CV",
       profile: "Informatics undergraduate at Universitas Ahmad Dahlan with a Computer and Network Engineering background. Full-stack developer and bug hunter, writing an undergraduate thesis on real-time phishing URL detection. Builds web applications end to end, from interface and database to testing and deployment, and founded V-Code, a software house. Took part in a community service expedition in the Mentawai Islands, where he built a tourism and local-business website for Muara Sikabaluan village. Strong interest in web development and cybersecurity, and used to working in teams.",
       experience: ["muara", "edm", "cisempur", "assistant", "vcode", "kpu", "smartcomp", "bounty"],
-      skills: ["Web design", "Front-end coding", "Back-end coding", "JavaScript", "TypeScript", "React", "Next.js", "PHP", "Laravel", "Tailwind CSS", "C++", "Supabase and PostgreSQL", "Deployment (Vercel, VPS)", "Git and GitHub", "QA testing", "Networking basics", "Security tools: Burp Suite, nmap, bettercap, Frida"],
+      skills: ["Web design", "Front-end coding", "Back-end coding", "JavaScript", "TypeScript", "React", "Next.js", "PHP", "Laravel", "Tailwind CSS", "C++", "MySQL, Supabase, and PostgreSQL", "Deployment (Vercel, VPS)", "Git and GitHub", "QA testing", "Networking basics", "Security tools: Burp Suite, nmap, bettercap, Frida"],
       portfolio: [
         { label: "Live project: Muara Sikabaluan village website", href: "https://desa-muara-sikabaluan.vercel.app" },
         { label: "The journal reading list on this site", href: "#journals" }
@@ -189,7 +189,7 @@ window.CV = {
       label: "Full-stack developer",
       profile: "Informatics undergraduate who builds and ships web applications. Built a tourism and local-business website for Muara Sikabaluan village with Next.js, TypeScript, and Supabase, and worked as a full-stack developer on a village website in React and Laravel, including QA testing and VPS deployment. Founder of V-Code, a software house. Seeking a junior full-stack role.",
       experience: ["muara", "cisempur", "vcode", "assistant", "edm", "kpu", "smartcomp:short"],
-      skills: ["React", "Next.js", "TypeScript", "JavaScript", "PHP", "Laravel", "Tailwind CSS", "Supabase and PostgreSQL", "Vercel and VPS deployment", "Git and GitHub"],
+      skills: ["React", "Next.js", "TypeScript", "JavaScript", "PHP", "Laravel", "Tailwind CSS", "MySQL, Supabase, and PostgreSQL", "Vercel and VPS deployment", "Git and GitHub"],
       portfolio: [
         { label: "Live project: Muara Sikabaluan village website", href: "https://desa-muara-sikabaluan.vercel.app" }
       ]
