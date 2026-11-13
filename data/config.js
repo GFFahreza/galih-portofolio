@@ -37,7 +37,7 @@ window.CONFIG = {
   cvPdf: "",
 
   video: {
-    url: "", // [ISI: URL video] paste the YouTube or Google Drive link here
+    url: "https://youtu.be/xa3ucX976mc", // YouTube or Google Drive link
     provider: "youtube",
     id: "",
     src: "",

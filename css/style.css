@@ -1481,6 +1481,11 @@ html.lenis body { height: auto; }
 .vframe.has-player .vcorner,
 .vframe.has-player .veq { opacity: 0.35; }
 
+/* YouTube and Drive draw their own title bar and controls: the frame overlays step aside. */
+.vframe.has-embed .vrec,
+.vframe.has-embed .vcorner,
+.vframe.has-embed .veq { display: none; }
+
 .vbadge {
   position: absolute;
   top: 0;

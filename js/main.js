@@ -345,6 +345,7 @@
       iframe.referrerPolicy = "strict-origin-when-cross-origin";
       showPlayer(iframe);
       if (recLabel) recLabel.textContent = "YouTube";
+      frame.classList.add("has-embed");
       iframe.focus();
     }
 
@@ -357,6 +358,7 @@
       iframe.referrerPolicy = "strict-origin-when-cross-origin";
       showPlayer(iframe);
       if (recLabel) recLabel.textContent = "Google Drive";
+      frame.classList.add("has-embed");
       iframe.focus();
     }
 
